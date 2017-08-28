@@ -1,0 +1,165 @@
+{
+ "VCAP_SERVICES": {
+  "blockchain-data-integrity": [
+   {
+    "credentials": {
+     "uri": "https://bcdi-proxy-service-cf3.run.aws-usw02-dev.ice.predix.io",
+     "zone": {
+      "http-header-name": "Predix-Zone-Id",
+      "http-header-value": "6a16c028-63b5-4f1c-b652-4cd5332dae81",
+      "oauth-scope": "blockchain-data-integrity.zones.6a16c028-63b5-4f1c-b652-4cd5332dae81.user"
+     }
+    },
+    "label": "blockchain-data-integrity",
+    "name": "blockchain-demo-arik",
+    "plan": "Tiered",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [],
+    "volume_mounts": []
+   }
+  ],
+  "predix-event-hub": [
+   {
+    "credentials": {
+     "publish": {
+      "protocol_details": [
+       {
+        "protocol": "grpc",
+        "uri": "event-hub-aws-usw02-cf3-dev.data-services.predix.io:443",
+        "zone-token-scope": [
+         "predix-event-hub.zones.694e14cb-afba-4699-9a3c-dc5e590dcaa1.user",
+         "predix-event-hub.zones.694e14cb-afba-4699-9a3c-dc5e590dcaa1.grpc.publish"
+        ]
+       },
+       {
+        "protocol": "wss",
+        "uri": "event-hub-aws-usw02-cf3-dev.data-services.predix.io/v1/stream/messages/",
+        "zone-token-scope": [
+         "predix-event-hub.zones.694e14cb-afba-4699-9a3c-dc5e590dcaa1.user",
+         "predix-event-hub.zones.694e14cb-afba-4699-9a3c-dc5e590dcaa1.wss.publish"
+        ]
+       }
+      ],
+      "zone-http-header-name": "Predix-Zone-Id",
+      "zone-http-header-value": "694e14cb-afba-4699-9a3c-dc5e590dcaa1"
+     },
+     "subscribe": {
+      "protocol_details": [
+       {
+        "protocol": "grpc",
+        "uri": "event-hub-aws-usw02-cf3-dev.data-services.predix.io:443",
+        "zone-token-scope": [
+         "predix-event-hub.zones.694e14cb-afba-4699-9a3c-dc5e590dcaa1.user",
+         "predix-event-hub.zones.694e14cb-afba-4699-9a3c-dc5e590dcaa1.grpc.subscribe"
+        ]
+       }
+      ],
+      "zone-http-header-name": "Predix-Zone-Id",
+      "zone-http-header-value": "694e14cb-afba-4699-9a3c-dc5e590dcaa1"
+     }
+    },
+    "label": "predix-event-hub",
+    "name": "eventhub-demo-arik",
+    "plan": "Beta",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "eventhub",
+     "event-hub",
+     "event hub"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "predix-timeseries": [
+   {
+    "credentials": {
+     "ingest": {
+      "uri": "wss://gateway-stage.run.aws-usw02-dev.ice.predix.io/v1/stream/messages",
+      "zone-http-header-name": "Predix-Zone-Id",
+      "zone-http-header-value": "39f60a5e-06e2-4f1f-82b6-4fbd02ba5cd3",
+      "zone-token-scopes": [
+       "timeseries.zones.39f60a5e-06e2-4f1f-82b6-4fbd02ba5cd3.user",
+       "timeseries.zones.39f60a5e-06e2-4f1f-82b6-4fbd02ba5cd3.ingest"
+      ]
+     },
+     "query": {
+      "uri": "https://time-series-store-predix-rel.run.aws-usw02-dev.ice.predix.io/v1/datapoints",
+      "zone-http-header-name": "Predix-Zone-Id",
+      "zone-http-header-value": "39f60a5e-06e2-4f1f-82b6-4fbd02ba5cd3",
+      "zone-token-scopes": [
+       "timeseries.zones.39f60a5e-06e2-4f1f-82b6-4fbd02ba5cd3.user",
+       "timeseries.zones.39f60a5e-06e2-4f1f-82b6-4fbd02ba5cd3.query"
+      ]
+     }
+    },
+    "label": "predix-timeseries",
+    "name": "timeseries-demo-arik",
+    "plan": "Free",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [
+     "timeseries",
+     "time-series",
+     "time series"
+    ],
+    "volume_mounts": []
+   }
+  ],
+  "predix-uaa": [
+   {
+    "credentials": {
+     "dashboardUrl": "https://uaa-dashboard.run.aws-usw02-dev.ice.predix.io/#/login/a1c055ca-15ce-4f01-bb0d-1351e249c75d",
+     "issuerId": "https://a1c055ca-15ce-4f01-bb0d-1351e249c75d.predix-uaa.run.aws-usw02-dev.ice.predix.io/oauth/token",
+     "subdomain": "a1c055ca-15ce-4f01-bb0d-1351e249c75d",
+     "uri": "https://a1c055ca-15ce-4f01-bb0d-1351e249c75d.predix-uaa.run.aws-usw02-dev.ice.predix.io",
+     "zone": {
+      "http-header-name": "X-Identity-Zone-Id",
+      "http-header-value": "a1c055ca-15ce-4f01-bb0d-1351e249c75d"
+     }
+    },
+    "label": "predix-uaa",
+    "name": "uaa-demo-arik",
+    "plan": "Free",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [],
+    "volume_mounts": []
+   }
+  ],
+  "predix-vault-stage": [
+   {
+    "credentials": {
+     "encryption_url": "https://predix-vault.aws-usw02-dev.ice.predix.io/v1/encryption/26c3ac2d-bb9f-4d9d-a7b8-655ee9cd2249/d6c02631-4ee5-48b7-8801-313f1df8004e/3184bfe9-ea0e-4a66-ab33-fe8efd0fe7fb",
+     "renew_token_url": "https://predix-vault.aws-usw02-dev.ice.predix.io/v1/auth/token/renew-self",
+     "vault_accessor": "d4f7c8fb-f69c-29ac-dd16-280f53a154b5",
+     "vault_token": "8701748d-38f4-9b19-f4b9-f076c88404bf",
+     "vault_url": "https://predix-vault.aws-usw02-dev.ice.predix.io/v1/secret-staging/26c3ac2d-bb9f-4d9d-a7b8-655ee9cd2249/d6c02631-4ee5-48b7-8801-313f1df8004e/3184bfe9-ea0e-4a66-ab33-fe8efd0fe7fb"
+    },
+    "label": "predix-vault-stage",
+    "name": "vault-demo-arik",
+    "plan": "Beta",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [],
+    "volume_mounts": []
+   }
+  ],
+  "predix-views": [
+   {
+    "credentials": {
+     "instanceId": "347b0764-63b4-48d3-91ca-6a08f1a1e5e3",
+     "uri": "https://predix-views.run.aws-usw02-dev.ice.predix.io"
+    },
+    "label": "predix-views",
+    "name": "views-demo-arik",
+    "plan": "Free",
+    "provider": null,
+    "syslog_drain_url": null,
+    "tags": [],
+    "volume_mounts": []
+   }
+  ]
+ }
+}

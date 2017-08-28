@@ -1,0 +1,24 @@
+{
+ "VCAP_APPLICATION": {
+  "application_id": "4088be93-005a-4e9d-b15d-69559b8021a5",
+  "application_name": "hello-world-arik",
+  "application_uris": [
+   "hello-world-arik.run.aws-usw02-dev.ice.predix.io"
+  ],
+  "application_version": "48eb95e4-59aa-488b-bcdb-d485db41d9e1",
+  "cf_api": "https://api.system.aws-usw02-dev.ice.predix.io",
+  "limits": {
+   "disk": 1024,
+   "fds": 16384,
+   "mem": 256
+  },
+  "name": "hello-world-arik",
+  "space_id": "d6c02631-4ee5-48b7-8801-313f1df8004e",
+  "space_name": "dev",
+  "uris": [
+   "hello-world-arik.run.aws-usw02-dev.ice.predix.io"
+  ],
+  "users": null,
+  "version": "48eb95e4-59aa-488b-bcdb-d485db41d9e1"
+ }
+}
