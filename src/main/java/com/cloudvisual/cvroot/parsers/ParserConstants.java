@@ -1,6 +1,6 @@
-package com.cloudvisual.cvroot.filters;
+package com.cloudvisual.cvroot.parsers;
 
-public class Constants {
+public class ParserConstants {
     public static final String VCAP_SERVICES = "VCAP_SERVICES";
     public static final String VCAP_APPLICATION = "VCAP_APPLICATION";
     public static final String NAME = "name";
@@ -16,7 +16,7 @@ public class Constants {
     public static final String APP_LIMITS = "limits";
     public static final String CF_API = "cf_api";
 
-    private Constants() {
+    private ParserConstants() {
     }
 
 }
