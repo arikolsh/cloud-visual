@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://visjs.org/dist/vis.js"></script>
+    <link href="http://visjs.org/dist/vis.css" rel="stylesheet" type="text/css"/>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <style type="text/css">
+
+        vcap-raw-text-area {
+            width: 300px;
+            height: 8em;
+        }
+
+    </style>
+</head>
+<body>
+<form id="formid" title="" method="post">
+    <label class="vcap-raw">Paste VCAP Here:</label>
+    <div class="container">
+        <p><textarea name="vcap-raw-text-area" id="vcap-raw-text-area" cols="100" rows="100"></textarea></p>
+    </div>
+    <div>
+        <input type="submit" id="submitButton" name="submitButton" value="Submit">
+    </div>
+    <div id="result" class="container"></div>
+</form>
+<script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#formid").submit(function (event) {
+
+        /* stop form from submitting normally */
+        event.preventDefault();
+
+        /* get the action attribute from the <form action=""> element */
+        var settings = {
+            "async": true,
+            "url": "api/vcap/raw-parse",
+            "method": "POST",
+            "headers": {
+                "content-type": "text/plain",
+                "cache-control": "no-cache"
+            },
+            "data": $('#vcap-raw-text-area').val()
+        }
+
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+            $("#result").empty().append(JSON.stringify(response));
+        });
+
+    });
+</script>
+
+</body>
+</html>

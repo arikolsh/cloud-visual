@@ -21,7 +21,7 @@ public class EnvController {
     @Autowired
     PredixVcapParserService vcapService;
 
-    @RequestMapping(value = "/parse", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
+    @RequestMapping(value = "/parse", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public ResponseEntity<PredixApp> getAppEntity(@RequestBody VCAP vcap) {
         PredixApp app = vcapService.getApplicationFromVCAP(vcap);
         if (app == null) {
@@ -30,7 +30,7 @@ public class EnvController {
         return new ResponseEntity<>(app, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/raw-parse", consumes = MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.PUT)
+    @RequestMapping(value = "/raw-parse", consumes = MediaType.TEXT_PLAIN_VALUE, method = RequestMethod.POST)
     public ResponseEntity<PredixApp> getAppEntity(@RequestBody String raw) {
         PredixApp app = vcapService.getVcapApplicationFromRawVCAP(raw);
         if (app == null) {
